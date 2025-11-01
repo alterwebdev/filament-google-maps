@@ -38,8 +38,8 @@
         <div
             class="w-full"
             x-ignore
-            ax-load
-            ax-load-src="{{ \Filament\Support\Facades\FilamentAsset::getAlpineComponentSrc('filament-google-maps-geocomplete', 'cheesegrits/filament-google-maps') }}"
+            x-load
+            x-load-src="{{ \Filament\Support\Facades\FilamentAsset::getAlpineComponentSrc('filament-google-maps-geocomplete', 'cheesegrits/filament-google-maps') }}"
             x-data="filamentGoogleGeocomplete({
                         setStateUsing: async (path, state) => {
                             return await $wire.set(path, state)
@@ -101,11 +101,13 @@
                     \Filament\Support\prepare_inherited_attributes($getExtraInputAttributeBag())
                         ->merge($extraAlpineAttributes, escape: false)
                         ->merge([
+                            'class'                                                                 => 'filament-forms-input',
+                            'x-ref'                                                                 => 'input',
                             'autocapitalize'                                                        => $getAutocapitalize(),
                             'autocomplete'                                                          => $getAutocomplete(),
                             'autofocus'                                                             => $isAutofocused(),
                             'disabled'                                                              => $isDisabled,
-                            'id'                                                                    => $id,
+                            'id'                                                                    => $getStatePath(),
                             'inlinePrefix'                                                          => $isPrefixInline && (count($prefixActions) || $prefixIcon || filled($prefixLabel)),
                             'inlineSuffix'                                                          => $isSuffixInline && (count($suffixActions) || $suffixIcon || filled($suffixLabel)),
                             'inputmode'                                                             => $getInputMode(),
@@ -131,7 +133,7 @@
                 <input
                     {{ $applyStateBindingModifiers('wire:model') }}="{{ $getStatePath() }}"
                     type="hidden"
-                    id="{{ $getId() }}"
+                    id="{{ $getStatePath() }}"
                 />
             @endif
         </div>
