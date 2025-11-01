@@ -1,9 +1,9 @@
 {
-    "name": "cheesegrits/filament-google-maps",
+    "name": "alterwebdev/filament-google-maps",
     "description": "A Google Maps package for Filament PHP with field, column and widget",
     "type": "library",
     "license": "MIT",
-    "homepage": "https://github.com/cheesegrits/filament-google-maps",
+    "homepage": "https://github.com/alterwebdev/filament-google-maps",
     "require": {
         "php": "^8.2",
         "spatie/laravel-package-tools": "^1.9",
