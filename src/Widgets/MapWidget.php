@@ -2,18 +2,19 @@
 
 namespace Cheesegrits\FilamentGoogleMaps\Widgets;
 
+use Filament\Widgets\Widget;
+use Filament\Widgets\Concerns\CanPoll;
 use Cheesegrits\FilamentGoogleMaps\Helpers\MapsHelper;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Widgets;
 
-class MapWidget extends Widgets\Widget implements HasActions, HasForms
+class MapWidget extends Widget implements HasActions, HasForms
 {
     use InteractsWithActions;
     use InteractsWithForms;
-    use Widgets\Concerns\CanPoll;
+    use CanPoll;
 
     protected ?array $cachedData = null;
 
@@ -47,7 +48,7 @@ class MapWidget extends Widgets\Widget implements HasActions, HasForms
 
     protected static bool $collapsible = false;
 
-    protected static string $view = 'filament-google-maps::widgets.filament-google-maps-widget';
+    protected string $view = 'filament-google-maps::widgets.filament-google-maps-widget';
 
     public array $controls = [
         'mapTypeControl'    => true,
